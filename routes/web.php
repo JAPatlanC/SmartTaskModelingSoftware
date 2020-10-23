@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/admin/task', function () {
+    return view('admin/Task');
+});
+Route::get('/admin/resource', function () {
+    return view('admin/Resource');
+});

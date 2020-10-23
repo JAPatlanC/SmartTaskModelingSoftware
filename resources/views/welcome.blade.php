@@ -19,6 +19,8 @@
                 font-family: 'Nunito';
             }
         </style>
+        <link href="/css/app.css" rel="stylesheet">
+        <script src="/js/app.js"></script>
     </head>
     <body class="antialiased">
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0">
@@ -121,7 +123,6 @@
                             </a>
                         </div>
                     </div>
-
                     <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
                         Build v{{ Illuminate\Foundation\Application::VERSION }}
                     </div>
