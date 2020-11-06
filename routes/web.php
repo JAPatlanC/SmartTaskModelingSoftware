@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ThemeController;
+use App\Http\Controllers\TaskController;
+use App\Http\Controllers\ContentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +25,7 @@ Route::get('/admin/task', function () {
 Route::get('/admin/resource', function () {
     return view('admin/Resource');
 });
+
+Route::resource('themes', ThemeController::class);
+Route::resource('tasks', TaskController::class);
+Route::resource('contents', ContentController::class);

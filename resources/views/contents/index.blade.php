@@ -394,19 +394,20 @@
     </style>
     <link href="/css/app.css" rel="stylesheet">
     <script src="/js/app.js"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
-    <link href="http://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet">
-    <script href="http://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script src="{{ asset('js/app.js') }}"></script><link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.22/b-1.6.5/b-colvis-1.6.5/b-flash-1.6.5/b-html5-1.6.5/b-print-1.6.5/cr-1.5.2/datatables.min.css"/>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.36/vfs_fonts.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.22/b-1.6.5/b-colvis-1.6.5/b-flash-1.6.5/b-html5-1.6.5/b-print-1.6.5/cr-1.5.2/datatables.min.js"></script>
 <script>
     $(document).ready( function () {
-        console.log('afdas');
         $('#myTable').DataTable({
-            "language": {
+            language: {
                 "url": "//cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
             },
-            "dom": 'Bfrtip',
-            "buttons": [
-                'copy', 'csv', 'excel', 'pdf', 'print'
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf','print'
             ]
         });
     } );
@@ -417,94 +418,86 @@
 
     <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
         <div style="background:#EAE7E6;/* border: 10px black; */border-radius: 10px;padding: 5%;width: 100%;">
-            {!! Form::open(['url' => '/processform', 'class' => 'form-horizontal']) !!}
 
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success">
+                    <p>{{ $message }}</p>
+                </div>
+            @endif
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <strong>Verifique los campos:</strong>.<br><br>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <fieldset>
 
 
-                <legend>Catalogo de Actividades</legend>
+                <legend>Catalogo de Archivos</legend>
                 <table id="myTable">
                     <thead>
                     <tr>
-                        <th>Pregunta</th>
-                        <th>Tema relacionado</th>
-                        <th>Respuestas</th>
+                        <th>Nombre</th>
+                        <th>Tipo</th>
+                        <th>Tamaño</th>
+                        <th>Vista Previa</th>
+                        <th>Fecha Creación</th>
                         <th>Acciones</th>
                     </tr>
                     </thead>
                 <tbody>
-                <tr>
-                    <td>Pregunta 1</td>
-                    <td>Tema 1</td>
-                    <td>R1</td>
-                    <td></td>
-                </tr>
+                @foreach ($projects as $project)
+                    <tr>
+                        <td>{{ $project->filename }}</td>
+                        <td>{{ $project->filetype }}</td>
+                        <td>{{ floor($project->size/1024) }} KB</td>
+                        <td></td>
+                        <td>{{ date_format($project->created_at, 'j M Y') }}</td>
+                        <td>
+                            <form action="{{ route('contents.destroy', $project->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+
+                                <button type="submit" title="delete" style="border: none; background-color:transparent;">
+                                    Eliminar
+
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
                 </tbody>
                 </table>
 
-                <legend>Nueva Actividad</legend>
 
-                <!-- Email -->
+                            <legend>Nuevo Archivo</legend>
+                    {!! Form::open(['url' => route('contents.store'), 'class' => 'form-horizontal','method'=>'POST','files'=>true]) !!}
+
+            @csrf
+            <!-- Email -->
                 <div class="form-group">
-                    {!! Form::label('pregunta', 'Descripcion:', ['class' => 'col-lg-2 control-label']) !!}
+                    {!! Form::label('pregunta', 'Cargar archivo:', ['class' => 'col-lg-2 control-label']) !!}
                     <div class="col-lg-10">
-                        {!! Form::email('pregunta', $value = null, ['class' => 'form-control', 'placeholder' => 'Ingrese la descripcion...']) !!}
-                    </div>
-                </div>
-                <div class="form-group">
-                    {!! Form::label('tipo', 'Tipo de pregunta:', ['class' => 'col-lg-2 control-label'] )  !!}
-                    <div class="col-lg-10">
-                        {!!  Form::select('tipo', ['S' => 'Radiobutton', 'L' => 'Checkbox', 'XL' => 'Númerico'],  'S', ['class' => 'form-control' ]) !!}
-                    </div>
-                </div>
-                <div class="form-group">
-                    {!! Form::label('tema', 'Tema relacionado', ['class' => 'col-lg-2 control-label'] )  !!}
-                    <div class="col-lg-10">
-                        {!!  Form::select('tema', ['S' => 'Tema 1', 'L' => 'Tema 2', 'XL' => 'Tema 3', '2XL' => 'Tema 4'],  'S', ['class' => 'form-control' ]) !!}
-                    </div>
-                </div>
-                <div class="form-group">
-                    {!! Form::label('nopciones', 'Número de opciones:', ['class' => 'col-lg-2 control-label']) !!}
-                    <div class="col-lg-10">
-                        {!! Form::email('nopciones', $value = '3', ['class' => 'form-control', 'placeholder' => 'Ingrese el número de opciones...']) !!}
-                    </div>
-                </div>
-                <div class="form-group">
-                    {!! Form::label('op1', 'Opcion 1:', ['class' => 'col-lg-2 control-label']) !!}
-                    <div class="col-lg-10">
-                        {!! Form::email('op1', $value = null, ['class' => 'form-control', 'placeholder' => '']) !!}
-                    </div>
-                </div>
-                <div class="form-group">
-                    {!! Form::label('op2', 'Opcion 2:', ['class' => 'col-lg-2 control-label']) !!}
-                    <div class="col-lg-10">
-                        {!! Form::email('op2', $value = null, ['class' => 'form-control', 'placeholder' => '']) !!}
-                    </div>
-                </div>
-                <div class="form-group">
-                    {!! Form::label('op3', 'Opcion 3:', ['class' => 'col-lg-2 control-label']) !!}
-                    <div class="col-lg-10">
-                        {!! Form::email('op3', $value = null, ['class' => 'form-control', 'placeholder' => '']) !!}
-                    </div>
-                </div>
-                <div class="form-group">
-                    {!! Form::label('vpregunta', 'Valor de las respuestas:', ['class' => 'col-lg-2 control-label']) !!}
-                    <div class="col-lg-10">
-                        {!! Form::email('vpregunta', $value = null, ['class' => 'form-control', 'placeholder' => 'Ingrese el valor de la pregunta...']) !!}
+                        {!! Form::file('image'); !!}
                     </div>
                 </div>
 
 
-                <!-- Submit Button -->
-                <div class="form-group">
-                    <div class="col-lg-10 col-lg-offset-2" align="center">
-                        {!! Form::submit('Guardar', ['class' => 'btn btn-lg btn-primary pull-right'] ) !!}
-                    </div>
+            <!-- Submit Button -->
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2" align="center">
+                    {!! Form::submit('Guardar', ['class' => 'btn btn-lg btn-primary pull-right'] ) !!}
                 </div>
+            </div>
+                {!! Form::close()  !!}
+
 
             </fieldset>
 
-            {!! Form::close()  !!}
 
         </div>
     </div>
