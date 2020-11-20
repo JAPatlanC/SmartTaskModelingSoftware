@@ -22,10 +22,10 @@ Route::get('/', function () {
 });
 Route::get('contentsVer/{id}', function ($id) {
     $content = Content::find($id);
-    $base64 = $content->body;
-    dd($base64);
+    $baseData = $content->body;
+    dd($baseData,$content);
 
-    return view('contents.ver',  compact(['base64','base64']));
+    return view('contents.ver',  compact(['baseData','baseData']));
 })->name('contentsVer');
 Route::get('/admin/task', function () {
     return view('admin/Task');
