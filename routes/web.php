@@ -23,6 +23,7 @@ Route::get('/', function () {
 });
 Route::get('contentsVer/{id}', function ($id) {
     $content = Content::find($id);
+    $type=$content->filetype;
     $base64 = $content->body;
     //$baseData = base64_encode($base64);
 
@@ -30,7 +31,7 @@ Route::get('contentsVer/{id}', function ($id) {
     $my_string = pg_unescape_bytea($my_bytea);
     $baseData = htmlspecialchars($my_string);
 
-    return view('contents.ver',  compact(['baseData','baseData']));
+    return view('contents.ver',  compact(['baseData','baseData','type']));
 })->name('contentsVer');
 
 
