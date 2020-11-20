@@ -27,7 +27,6 @@ Route::get('contentsVer/{id}', function ($id) {
     $my_bytea = stream_get_contents($base64);
     $my_string = pg_unescape_bytea($my_bytea);
     $baseData = htmlspecialchars($my_string);
-    dd($baseData,$content);
 
     return view('contents.ver',  compact(['baseData','baseData']));
 })->name('contentsVer');
