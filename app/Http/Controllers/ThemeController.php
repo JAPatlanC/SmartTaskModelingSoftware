@@ -44,7 +44,6 @@ class ThemeController extends Controller
             'name' => 'required',
             'value' => 'required'
         ]);
-
         Theme::create($request->all());
 
         return redirect()->route('themes.index')
