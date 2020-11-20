@@ -23,4 +23,5 @@ class Theme extends Model
     {
         return $this->hasOne('App\Models\Theme','id','parent_id');
     }
+
 }

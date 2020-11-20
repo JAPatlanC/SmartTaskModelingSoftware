@@ -3,7 +3,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>FAEN - @yield('title','') </title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -394,6 +394,9 @@
 
     <script src="{{ asset('js/app.js') }}"></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/Treant.js') }}"></script>
+    <script src="{{ asset('js/raphael.js') }}"></script>
+    <link href="{{ asset('css/Treant.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.22/b-1.6.5/b-colvis-1.6.5/b-flash-1.6.5/b-html5-1.6.5/b-print-1.6.5/cr-1.5.2/datatables.min.css"/>
 
@@ -429,12 +432,22 @@
                 <a class="text-white" href="{{ route('contents.index') }}">
                     Archivos
                 </a><br/>
+                <a class="text-white" href="{{ route('resultados') }}">
+                    Resultados
+                </a><br/>
+                <a class="text-white" href="{{ route('validaEstructura') }}">
+                    Validar estructura
+                </a><br/>
+                <a class="text-white" href="{{ route('diagrama') }}">
+                    Diagrama de Estructura
+                </a><br/>
             </div>
         </div>
         <nav class="navbar navbar-dark bg-dark">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <h1 style="color: white;" class="pull-left">FAEN</h1>
         </nav>
     </div>
 @show

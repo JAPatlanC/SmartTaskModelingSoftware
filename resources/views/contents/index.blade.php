@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Page Title')
+@section('title', 'Archivos')
 
 
 @section('content')
@@ -58,7 +58,7 @@
                         </form>
                     </td>
                 </tr>
-            @endforeach
+
             </tbody>
         </table>
 

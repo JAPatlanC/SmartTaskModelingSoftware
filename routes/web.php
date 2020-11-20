@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Content;
+use App\Models\Theme;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ThemeController;
 use App\Http\Controllers\TaskController;
@@ -31,6 +32,43 @@ Route::get('contentsVer/{id}', function ($id) {
 
     return view('contents.ver',  compact(['baseData','baseData']));
 })->name('contentsVer');
+
+
+Route::get('validaEstructura', function () {
+    $projects = Theme::with('parent')->get();
+    $data = [];
+    foreach ($projects as $theme){
+        if($theme->id==$theme->parent->id)
+            continue;
+        try {
+            $data[''.$theme->parent->name] += $theme->value;
+        } catch (Exception $e) {
+            $data[''.$theme->parent->name] = intval('0'+$theme->value);
+
+        }
+    }
+
+    return view('validaEstructura',  compact(['data','data']));
+})->name('validaEstructura');
+
+
+Route::get('diagrama', function () {
+    $topic= Theme::where('parent_id','=',null)->firstOrFail();
+    $topNode = new \App\Models\Node();
+    $topNode->text= new \App\Models\Node();
+    $topNode->text->name=$topic->name;
+    $topNode->children=\App\Models\Utilities::addChildren(Theme::where('parent_id','=',$topic->id)->get());//
+    $data = $topNode;
+    //$data->name = $topic->name;
+
+
+    return view('diagrama',  compact(['data','data']));
+})->name('diagrama');
+
+Route::get('resultados', function () {
+    return view('resultados');
+})->name('resultados');
+
 Route::get('/admin/task', function () {
     return view('admin/Task');
 });
