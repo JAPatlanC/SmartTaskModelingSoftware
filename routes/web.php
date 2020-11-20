@@ -38,8 +38,12 @@ Route::get('validaEstructura', function () {
     $projects = Theme::with('parent')->get();
     $data = [];
     foreach ($projects as $theme){
+        try {
         if($theme->id==$theme->parent->id)
             continue;
+        } catch (Exception $e) {
+            continue;
+        }
         try {
             $data[''.$theme->parent->name] += $theme->value;
         } catch (Exception $e) {
