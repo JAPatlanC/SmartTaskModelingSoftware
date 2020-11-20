@@ -23,6 +23,7 @@ Route::get('/', function () {
 Route::get('contentsVer/{id}', function ($id) {
     $content = Content::find($id);
     $base64 = $content->body;
+    dd($base64);
 
     return view('contents.ver',  compact(['base64','base64']));
 })->name('contentsVer');
