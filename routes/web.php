@@ -23,11 +23,11 @@ Route::get('/', function () {
 Route::get('contentsVer/{id}', function ($id) {
     $content = Content::find($id);
     $base64 = $content->body;
-    $baseData = base64_encode($base64);
-    /*
+    //$baseData = base64_encode($base64);
+
     $my_bytea = stream_get_contents($base64);
     $my_string = pg_unescape_bytea($my_bytea);
-    $baseData = htmlspecialchars($my_string);*/
+    $baseData = htmlspecialchars($my_string);
 
     return view('contents.ver',  compact(['baseData','baseData']));
 })->name('contentsVer');
