@@ -1,6 +1,6 @@
 @extends('layout')
 
-@section('title', 'Page Title')
+@section('title', 'Ver Archivo')
 
 
 @section('content')
@@ -14,8 +14,7 @@
 
     @endif
     @if($type=='mp4' || $type=='MP4')
-        <video src="data:video/mp4;base64,{{ $baseData }}" alt="Red dot" />
-
+        <video src="data:video/mp4;base64,{{ $baseData }}" alt="Red dot" controls/>
     @endif
 
 
