@@ -392,6 +392,7 @@
         }
     </style>
 
+
     <script src="{{ asset('js/app.js') }}"></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="{{ asset('js/Treant.js') }}"></script>
@@ -418,43 +419,6 @@
     </script>
 </head>
 <body class="antialiased">
-@section('sidebar')
-    <div class="pos-f-t">
-        <div class="collapse" id="navbarToggleExternalContent">
-            <div class="bg-dark p-4">
-                <h5 class="text-white h4">Menu</h5>
-                <a class="text-white" href="{{ route('tasks.index') }}">
-                    Actividades
-                </a><br/>
-                <a class="text-white" href="{{ route('themes.index') }}">
-                    Temas, subtemas...
-                </a><br/>
-                <a class="text-white" href="{{ route('contents.index') }}">
-                    Archivos
-                </a><br/>
-                <a class="text-white" href="{{ route('resultados') }}">
-                    Resultados
-                </a><br/>
-                <a class="text-white" href="{{ route('validaEstructura') }}">
-                    Validar estructura
-                </a><br/>
-                <a class="text-white" href="{{ route('diagrama') }}">
-                    Diagrama de Estructura
-                </a><br/>
-                <a class="text-white" href="{{ route('settings.index') }}">
-                    Configuración
-                </a><br/>
-            </div>
-        </div>
-        <nav class="navbar navbar-dark bg-dark">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <h1 style="color: white;" class="pull-left">FAEN</h1>
-        </nav>
-    </div>
-@show
-
     <div class="relative items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center sm:pt-0" style="padding-top:50px">
 
     <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">

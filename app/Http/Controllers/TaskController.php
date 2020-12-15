@@ -7,6 +7,8 @@ use App\Models\Content;
 use Illuminate\Http\Request;
 
 use App\Models\Task;
+use Illuminate\Support\Facades\Redirect;
+
 class TaskController extends Controller
 {
     /**
@@ -49,6 +51,18 @@ class TaskController extends Controller
         ]);
 
         $task = Task::create($request->all());
+        if($task->type=='Checkbox'){
+            $suma=0;
+            try{
+                foreach(explode(',',$task->answer) as $ans){
+                    $suma += $ans;
+                }
+            }catch(\Exception $e){
+                return Redirect::back()->withErrors(['Valide los valores de la respuesta separa por comas (debe sumar 100)'])->withInput($request->all());
+            }
+            if($suma!=100)
+                return Redirect::back()->withErrors(['Valide los valores de la respuesta separa por comas (debe sumar 100)'])->withInput($request->all());
+        }
         #dd($request->temas);
         $task->themes()->sync($request->temas);
         $task->contents()->sync($request->archivos);
@@ -100,7 +114,7 @@ class TaskController extends Controller
         $Task->update($request->all());
 
         $Task->themes()->sync($request->temas);
-        $task->contents()->sync($request->archivos);
+        $Task->contents()->sync($request->archivos);
         return redirect()->route('tasks.index')
             ->with('success', 'Actividad actualizada');
     }

@@ -4,8 +4,10 @@ use App\Models\Content;
 use App\Models\Theme;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ThemeController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\ContentController;
+use App\Http\Controllers\FlujoEncuestaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,8 +27,10 @@ Route::get('contentsVer/{id}', function ($id) {
     $content = Content::find($id);
     $type=$content->filetype;
     $base64 = $content->body;
-    //$baseData = base64_encode($base64);
+    //local
+    //$baseData = $base64;
 
+    //heroku
     $my_bytea = stream_get_contents($base64);
     $my_string = pg_unescape_bytea($my_bytea);
     $baseData = htmlspecialchars($my_string);
@@ -71,7 +75,8 @@ Route::get('diagrama', function () {
 })->name('diagrama');
 
 Route::get('resultados', function () {
-    return view('resultados');
+    $projects = \App\Models\Survey::all();
+    return view('resultados',compact(['projects']));
 })->name('resultados');
 
 Route::get('/admin/task', function () {
@@ -82,8 +87,15 @@ Route::get('/admin/resource', function () {
 });
 
 Route::resource('themes', ThemeController::class)->middleware('auth');;
+Route::resource('settings', SettingController::class)->middleware('auth');;
 Route::resource('tasks', TaskController::class)->middleware('auth');;
 Route::resource('contents', ContentController::class)->middleware('auth');;
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
+
+Route::get('iniciaEncuesta', [FlujoEncuestaController::class, 'begin']);
+Route::post('procesoEncuesta', [FlujoEncuestaController::class, 'process'])->name('procesoEncuesta');
+Route::get('terminaEncuesta', [FlujoEncuestaController::class, 'end'])->name('terminaEncuesta');
+
+Route::get('export', [FlujoEncuestaController::class, 'export'])->name('export');

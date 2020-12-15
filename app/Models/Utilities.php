@@ -20,4 +20,14 @@ class Utilities extends Model
         }
         return $nodes;
     }
+    //added
+    public static function addChildrenExcel($children) {
+        $arregloTitulos = [];
+        foreach($children as $child){
+            $arregloTitulos=$arregloTitulos+Utilities::addChildrenExcel(Theme::where('parent_id','=',$child->id)->get());
+            $arregloTitulos[$child->id]=$child->name;
+
+        }
+        return $arregloTitulos ;
+    }
 }

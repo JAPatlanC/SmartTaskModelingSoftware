@@ -30,6 +30,7 @@
                 <th>Nombre</th>
                 <th>Ponderación</th>
                 <th>Tema padre</th>
+                <th>Orden</th>
                 <th>Fecha Creación</th>
                 <th>Acciones</th>
             </tr>
@@ -45,6 +46,7 @@
                         <td>-</td>
 
                     @endif
+                    <td>{{ $project->order }}</td>
                     <td>{{ date_format($project->created_at, 'j M Y') }}</td>
                     <td>
                         <form action="{{ route('themes.destroy', $project->id) }}" method="POST">
@@ -71,12 +73,12 @@
 
 
         @if($isUpdate)
-            <legend>Actualizar </legend>
-            <form action="{!! route('themes.update', $theme->id) !!}" method="POST" >
+            <legend>Actualizar</legend>
+            <form action="{!! route('themes.update', $theme->id) !!}" method="POST">
                 @method('PUT')
                 @else
-                    <legend>Nuevo </legend>
-                    <form action="{!! route('themes.store') !!}" method="POST" >
+                    <legend>Nuevo</legend>
+                    <form action="{!! route('themes.store') !!}" method="POST">
 
                     @endif
 
@@ -99,6 +101,12 @@
                             {!! Form::label('parent_id', 'Tema padre:', ['class' => 'col-lg-2 control-label'] )  !!}
                             <div class="col-lg-10">
                                 {!!  Form::select('parent_id', $themesList,  $theme->parent_id, ['class' => 'form-control' ]) !!}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {!! Form::label('order', 'Orden:', ['class' => 'col-lg-2 control-label'] )  !!}
+                            <div class="col-lg-10">
+                                {!! Form::text('order', $theme->order, ['class' => 'form-control', 'placeholder' => 'Ingrese la orden...']) !!}
                             </div>
                         </div>
 
