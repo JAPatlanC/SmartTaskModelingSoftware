@@ -57,7 +57,7 @@
 
                 @endif
                 @if($archivo->filetype=='PNG' || $archivo->filetype=='png' || $archivo->filetype=='jpg'||$archivo->filetype=='JPG')
-                    <img src="data:image/png;base64,{{ $archivo->body }}" alt="Red dot"/>
+                    <img src="data:image/png;base64,{{ $archivo->body }}" alt="Red dot"  style="max-width: 800px;"/>
 
                 @endif
                 @if($archivo->filetype=='mp4' || $archivo->filetype=='MP4'||$archivo->filetype=='webm'||$archivo->filetype=='WEBM')
@@ -66,7 +66,7 @@
                     <br/><br/><br/>
             @endforeach
 
-            <button type="button" class="btn btn-primary" id="continuar">Continuar</button>
+            <button type="button" class="btn btn-dark" id="continuar">Continuar</button>
         </div>
     </div>
 
@@ -116,7 +116,7 @@
             </div>
             <div class="form-group">
                 <div class="col-lg-10 col-lg-offset-2" align="center">
-                    {!! Form::submit('Siguiente', ['id'=>'siguiente','class' => 'btn btn-lg btn-primary pull-right'] ) !!}
+                    {!! Form::submit('Siguiente', ['id'=>'siguiente','class' => 'btn btn-lg btn-dark pull-right'] ) !!}
                 </div>
             </div>
         </form>

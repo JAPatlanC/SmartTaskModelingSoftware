@@ -30,7 +30,7 @@
                 </div>
                 <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2" align="center">
-                        {!! Form::submit('Comenzar', ['class' => 'btn btn-lg btn-primary pull-right'] ) !!}
+                        {!! Form::submit('Comenzar', ['class' => 'btn btn-lg btn-dark pull-right'] ) !!}
                     </div>
                 </div>
             </form>

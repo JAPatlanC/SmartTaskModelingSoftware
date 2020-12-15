@@ -5,6 +5,8 @@
 
 @section('content')
     <h1>Resultados</h1>
+        <a class="btn btn-dark" href="{{ route('export') }}">Descargar CSV Resultados completos</a>
+    <br/><br/>
     <table id="myTable">
     <thead>
     <tr>
@@ -27,7 +29,6 @@
     </tbody>
 </table>
 
-    <a  class="btn btn-primary" href="{{ route('export') }}">Descargar CSV Resultados</a>
 
 @stop
 

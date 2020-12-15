@@ -52,7 +52,7 @@
                         <form action="{{ route('themes.destroy', $project->id) }}" method="POST">
 
 
-                            <a href="{{ route('themes.edit', $project->id) }}">
+                            <a href="{{ route('themes.edit', $project->id) }}"  class="btn btn-dark">
                                 Editar
 
                             </a>
@@ -60,7 +60,7 @@
                             @csrf
                             @method('DELETE')
 
-                            <button type="submit" title="delete" style="border: none; background-color:transparent;">
+                            <button type="submit" title="delete" class="btn btn-danger">
                                 Eliminar
 
                             </button>
@@ -114,7 +114,7 @@
                         <!-- Submit Button -->
                         <div class="form-group">
                             <div class="col-lg-10 col-lg-offset-2" align="center">
-                                {!! Form::submit('Guardar', ['class' => 'btn btn-lg btn-primary pull-right'] ) !!}
+                                {!! Form::submit('Guardar', ['class' => 'btn btn-lg btn-dark pull-right'] ) !!}
                             </div>
                         </div>
                     </form>
