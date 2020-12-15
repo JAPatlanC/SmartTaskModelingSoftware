@@ -10,7 +10,7 @@
 
     @endif
     @if($type=='PNG' || $type=='png'|| $type=='jpg'|| $type=='JPG')
-        <img src="data:image/png;base64,{{ $baseData }}" alt="Red dot" />
+        <img src="data:image/png;base64,{{ $baseData }}" alt="Red dot" style="max-width: 800px;"/>
 
     @endif
     @if($type=='mp4' || $type=='MP4'|| $type=='webm'|| $type=='WEBM')
