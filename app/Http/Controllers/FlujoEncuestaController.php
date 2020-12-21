@@ -140,6 +140,13 @@ class FlujoEncuestaController extends Controller
             $idsTareas = TaskTheme::where('theme_id','=',$siguienteTema->id)->pluck('task_id')->toArray();
             $tasks = Task::whereIn('id',$idsTareas)->get();
             $archivos = Content::whereIn('id',TaskContent::whereIn('task_id',$idsTareas)->pluck('content_id')->toArray())->get();
+            foreach ($archivos as $archivo){
+                $base64 = $archivo->body;
+                //heroku
+                $my_bytea = stream_get_contents($base64);
+                $my_string = pg_unescape_bytea($my_bytea);
+                $archivo->body = htmlspecialchars($my_string);
+            }
             $survey->update();
         }
 
