@@ -4,6 +4,8 @@
     <list default="true" id="024176a1-917d-4d10-8b38-5a0d5c628d06" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_04_191714_add_time_to_surveydetail_table.php" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/database/migrations/2020_12_04_191714_change_size_to_task_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/faen.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/faen.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Exports/UsersExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/UsersExport.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/FlujoEncuestaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/FlujoEncuestaController.php" afterDir="false" />
@@ -494,16 +496,15 @@
       <workItem from="1607355908093" duration="12635000" />
       <workItem from="1607975314041" duration="3829000" />
       <workItem from="1608049118113" duration="15836000" />
-      <workItem from="1608513540715" duration="4277000" />
+      <workItem from="1608513540715" duration="4877000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88446000" />
+    <option name="totallyTimeSpent" value="89046000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18004769" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
