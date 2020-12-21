@@ -61,7 +61,8 @@
 
                 @endif
                 @if($archivo->filetype=='mp4' || $archivo->filetype=='MP4'||$archivo->filetype=='webm'||$archivo->filetype=='WEBM')
-                    <video src="data:video/mp4;base64,{{ $archivo->body }}" alt="Red dot" controls/>
+                    <video src="data:video/mp4;base64,{{ $archivo->body }}" alt="Red dot" controls>
+                    </video>
                 @endif
                     <br/><br/><br/>
             @endforeach
