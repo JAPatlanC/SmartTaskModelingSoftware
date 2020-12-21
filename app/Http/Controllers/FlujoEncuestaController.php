@@ -28,6 +28,7 @@ class FlujoEncuestaController extends Controller
 
     public function process(Request $request, Survey $survey)
     {
+        $startTime = microtime(true);
         $tiempoRestante = Setting::find(2);
         //Crea una nueva encuesta
         if ($request->survey == null) {
@@ -41,17 +42,22 @@ class FlujoEncuestaController extends Controller
             $idsTareas = TaskTheme::where('theme_id','=',$siguienteTema->id)->pluck('task_id')->toArray();
             $tasks = Task::whereIn('id',$idsTareas)->get();
             $archivos = Content::whereIn('id',TaskContent::whereIn('task_id',$idsTareas)->pluck('content_id')->toArray())->get();
-            foreach ($archivos as $archivo){
+            /*foreach ($archivos as $archivo){
                 $base64 = $archivo->body;
                 //heroku
                 $my_bytea = stream_get_contents($base64);
                 $my_string = pg_unescape_bytea($my_bytea);
                 $archivo->body = htmlspecialchars($my_string);
-            }
+            }*/
             $survey->folio = $request->folio;
             $survey->save();
         } else {
             //dd($request->all());
+            //Tiempo transcurrido
+            $startTime=$request->startTime;
+            $endtime = microtime(true);
+            $timediff = ceil($endtime - $startTime);
+            $startTime=microtime(true);
             $survey = Survey::find($request->survey);
             $siguienteTema = new Theme(json_decode($request->siguienteTema, true));
             $answersCollection = [];
@@ -104,6 +110,7 @@ class FlujoEncuestaController extends Controller
                 $answer->survey_id=$survey->id;
                 $answer->score=ceil($score);
                 $answer->answer=$ansString;
+                $answer->time=$timediff;
                 array_push($answersCollection,$answer);
             }
             //Guardando todas las respuestas y sacando promedio del tema
@@ -136,7 +143,7 @@ class FlujoEncuestaController extends Controller
             $survey->update();
         }
 
-        return view('procesoEncuesta', compact(['tiempoRestante','siguienteTema','survey','archivos','tasks','temasNodos','siguienteTema']));
+        return view('procesoEncuesta', compact(['tiempoRestante','siguienteTema','survey','archivos','tasks','temasNodos','siguienteTema','startTime']));
     }
 
 

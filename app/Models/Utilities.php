@@ -30,4 +30,14 @@ class Utilities extends Model
         }
         return $arregloTitulos ;
     }
+    //added
+    public static function addChildrenExcelTimes($children) {
+        $arregloTitulos = [];
+        foreach($children as $child){
+            $arregloTitulos=$arregloTitulos+Utilities::addChildrenExcelTimes(Theme::where('parent_id','=',$child->id)->get());
+            $arregloTitulos['T'.$child->id]='Tiempo '.$child->name;
+
+        }
+        return $arregloTitulos ;
+    }
 }

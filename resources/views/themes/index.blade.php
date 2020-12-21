@@ -100,7 +100,7 @@
                         <div class="form-group">
                             {!! Form::label('parent_id', 'Tema padre:', ['class' => 'col-lg-2 control-label'] )  !!}
                             <div class="col-lg-10">
-                                {!!  Form::select('parent_id', $themesList,  $theme->parent_id, ['class' => 'form-control' ]) !!}
+                                {!!  Form::select('parent_id', $themesList,  $theme->parent_id, ['placeholder' => 'Vacio','class' => 'form-control' ]) !!}
                             </div>
                         </div>
                         <div class="form-group">

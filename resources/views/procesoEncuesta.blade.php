@@ -80,6 +80,7 @@
                 {{ Form::hidden('survey', $survey->id) }}
                 {{ Form::hidden('temasNodos', $temasNodos) }}
                 {{ Form::hidden('siguienteTema', $siguienteTema) }}
+                {{ Form::hidden('startTime', $startTime) }}
                 @foreach ($tasks as $task)
                     @if($task->type=='RadioButton')
                         <div class="form-group">
