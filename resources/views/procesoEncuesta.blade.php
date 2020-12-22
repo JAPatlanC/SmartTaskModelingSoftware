@@ -4,7 +4,16 @@
 
 
 @section('content')
+<style>
 
+    label {
+        font-size: 20px;
+    }
+    #demo{
+        font-size: 20px;
+    }
+
+</style>
     <script>
         $(document).ready(function () {
             $("#continuar").click(function () {
@@ -44,11 +53,11 @@
         });
         // Set the date we're counting down to
     </script>
-    <legend>{{$siguienteTema->name}}</legend>
+    <!--<legend>{{$siguienteTema->name}}</legend>-->
     <!-- Zona multimedia -->
     <div id="multimedia">
-        <legend>Multimedia</legend>
-        <h4>Observe el contenido a continuación y de click en continuar al finalizar</h4>
+        <!--<legend>Multimedia</legend>-->
+        <h4>A continuación aparecen una serie de videos e imágenes que te ayudarán a contestar las preguntas</h4>
 
         <div align="center">
             @foreach ($archivos as $archivo)
@@ -73,7 +82,10 @@
 
     <!-- Zona preguntas -->
     <div id="preguntas" style="display:none;">
-        <p id="demo"></p>
+
+        <div align="center">
+            <p id="demo"></p>
+        </div>
         <legend>Cuestionario</legend>
         <form action="{{ route('procesoEncuesta', $survey->id) }}" id="formulario" method="POST">
             <div id="zonaPreguntas">
@@ -83,33 +95,40 @@
                 {{ Form::hidden('siguienteTema', $siguienteTema) }}
                 {{ Form::hidden('startTime', $startTime) }}
                 @foreach ($tasks as $task)
+                    <br/>
                     @if($task->type=='RadioButton')
                         <div class="form-group">
-                            {!! Form::label($task->description, $task->description, ['class' => 'col-lg-2 control-label']) !!}
+                            {!! Form::label($task->description, $task->description, ['class' => 'control-label']) !!}
+                            <br/>
                             @foreach (explode(',',$task->options) as $opt)
                                 <label>
                                     {{ Form::radio('answer['.$task->id.']', $opt, ['class'=>'with-gap']) }} <span>{{$opt}}</span>
                                 </label>
+                                <br/>
                             @endforeach
                         </div>
                     @endif
                     @if($task->type=='Checkbox')
                         <div class="form-group">
-                            {!! Form::label($task->description, $task->description, ['class' => 'col-lg-2 control-label']) !!}
+                            {!! Form::label($task->description, $task->description, ['class' => 'control-label']) !!}
+                            <br/>
                             @foreach (explode(',',$task->options) as $opt)
                                 <label>
-                                    {{ Form::checkbox('answer['.$task->id.'][]', $opt, false,['class'=>'with-gap','checked'=>'false']) }}
+                                    {{ Form::checkbox('answer['.$task->id.'][]', $opt, false,['class'=>'with-gap']) }}
                                     <span>{{$opt}}</span>
                                 </label>
+                                <br/>
                             @endforeach
                         </div>
                     @endif
                     @if($task->type=='Numerico')
                         <div class="form-group">
-                            {!! Form::label($task->description, $task->description, ['class' => 'col-lg-2 control-label']) !!}
+                            {!! Form::label($task->description, $task->description, ['class' => 'control-label']) !!}
+                            <br/>
                             <div class="col-lg-10">
                                 {!! Form::text('answer['.$task->id.']', null, ['class' => 'form-control', 'placeholder' => 'Ingrese un valor númerico...']) !!}
                             </div>
+                            <br/>
                         </div>
                     @endif
 
