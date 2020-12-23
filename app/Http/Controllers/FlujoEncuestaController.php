@@ -62,6 +62,7 @@ class FlujoEncuestaController extends Controller
             $siguienteTema = new Theme(json_decode($request->siguienteTema, true));
             $answersCollection = [];
             //Guardar respuestas
+            if($request->answer !=null)
             foreach($request->answer as $taskId=> $ans){
                 $ansString='';
                 $score=0;
@@ -120,7 +121,10 @@ class FlujoEncuestaController extends Controller
                 $ans->save();
                 $totalScore=$ans->score;
             }
-            $totalScore=ceil($totalScore/count($answersCollection));
+            if($request->answer !=null)
+                $totalScore=ceil($totalScore/count($answersCollection));
+            else
+                $totalScore=0;
             $answer = new Survey_Detail;
             $answer->theme_id=$siguienteTema->id;
             $answer->survey_id=$survey->id;
