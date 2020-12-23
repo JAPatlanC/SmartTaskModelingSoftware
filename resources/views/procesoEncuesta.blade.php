@@ -66,11 +66,11 @@
 
                 @endif
                 @if($archivo->filetype=='PNG' || $archivo->filetype=='png' || $archivo->filetype=='jpg'||$archivo->filetype=='JPG')
-                    <img src="data:image/png;base64,{{ $archivo->body }}" alt="Red dot"  style="max-width: 800px;"/>
+                    <img src="data:image/png;base64,{{ $archivo->body }}" alt="Red dot"  style="width: 400px;height: 400px;"/>
 
                 @endif
                 @if($archivo->filetype=='mp4' || $archivo->filetype=='MP4'||$archivo->filetype=='webm'||$archivo->filetype=='WEBM')
-                    <video src="data:video/mp4;base64,{{ $archivo->body }}" alt="Red dot" controls>
+                    <video src="data:video/mp4;base64,{{ $archivo->body }}" alt="Red dot" controls autoplay>
                     </video>
                 @endif
                     <br/><br/><br/>
