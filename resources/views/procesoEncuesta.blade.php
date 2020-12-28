@@ -57,23 +57,27 @@
     <!-- Zona multimedia -->
     <div id="multimedia">
         <!--<legend>Multimedia</legend>-->
-        <h4>A continuación aparecen una serie de videos e imágenes que te ayudarán a contestar las preguntas</h4>
+
 
         <div align="center">
-            @foreach ($archivos as $archivo)
+            @foreach ($archivos as  $archivo)
                 @if($archivo->filetype=='pdf' || $archivo->filetype=='PDF')
                     <iframe src="data:application/pdf;base64,{{ $archivo->body }}" height="100%" width="100%"></iframe>
 
                 @endif
                 @if($archivo->filetype=='PNG' || $archivo->filetype=='png' || $archivo->filetype=='jpg'||$archivo->filetype=='JPG')
+                    <h4>Observa la imagen y posteriormente contesta las preguntas</h4>
                     <img src="data:image/png;base64,{{ $archivo->body }}" alt="Red dot"  style="width: 400px;height: 400px;"/>
 
                 @endif
                 @if($archivo->filetype=='mp4' || $archivo->filetype=='MP4'||$archivo->filetype=='webm'||$archivo->filetype=='WEBM')
+                    <h4>Observa el video y posteriormente contesta las preguntas</h4>
                     <video src="data:video/mp4;base64,{{ $archivo->body }}" alt="Red dot" controls autoplay>
                     </video>
                 @endif
                     <br/><br/><br/>
+                @empty
+                        <h4>Contesta las siguientes preguntas</h4>
             @endforeach
 
             <button type="button" class="btn btn-dark" id="continuar">Continuar</button>
@@ -94,7 +98,8 @@
                 {{ Form::hidden('temasNodos', $temasNodos) }}
                 {{ Form::hidden('siguienteTema', $siguienteTema) }}
                 {{ Form::hidden('startTime', $startTime) }}
-                @foreach ($tasks as $task)
+                @foreach ($tasks as $indexKey =>$task)
+                    Pregunta {{$indexKey}}:
                     <br/>
                     @if($task->type=='RadioButton')
                         <div class="form-group">

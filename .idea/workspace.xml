@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="024176a1-917d-4d10-8b38-5a0d5c628d06" name="Default Changelist" comment="" />
+    <list default="true" id="024176a1-917d-4d10-8b38-5a0d5c628d06" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/procesoEncuesta.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/procesoEncuesta.blade.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,11 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FlujoEncuestaController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="47" column="16" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
+            <state relative-caret-position="-1">
+              <caret line="102" column="21" lean-forward="true" selection-start-line="102" selection-start-column="21" selection-end-line="102" selection-end-column="21" />
               <folding>
                 <element signature="e#40#68#0#PHP" expanded="true" />
               </folding>
@@ -108,14 +111,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/procesoEncuesta.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
-              <folding>
-                <element signature="e#2786#2828#0#HTML" expanded="true" />
-              </folding>
+            <state relative-caret-position="544">
+              <caret line="101" column="43" selection-start-line="101" selection-start-column="43" selection-end-line="101" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -216,8 +216,8 @@
         <option value="$PROJECT_DIR$/app/Exports/UsersExport.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_12_04_191714_change_size_to_task_table.php" />
         <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/FlujoEncuestaController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2020_12_04_191714_change_size_to_surveydetail_table.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/FlujoEncuestaController.php" />
         <option value="$PROJECT_DIR$/resources/views/procesoEncuesta.blade.php" />
       </list>
     </option>
@@ -481,18 +481,19 @@
       <workItem from="1608513540715" duration="4877000" />
       <workItem from="1608587342702" duration="1541000" />
       <workItem from="1608666017213" duration="3101000" />
-      <workItem from="1608762701059" duration="719000" />
+      <workItem from="1608762701059" duration="1383000" />
+      <workItem from="1609184905683" duration="514000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94407000" />
+    <option name="totallyTimeSpent" value="95585000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18402226" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18561208" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -842,6 +843,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FlujoEncuestaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1">
+          <caret line="102" column="21" lean-forward="true" selection-start-line="102" selection-start-column="21" selection-end-line="102" selection-end-column="21" />
+          <folding>
+            <element signature="e#40#68#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2020_12_04_191714_change_size_to_surveydetail_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Models/Survey_Detail.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -894,30 +912,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database/migrations/2020_12_04_191714_change_size_to_surveydetail_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/procesoEncuesta.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
-          <folding>
-            <element signature="e#2786#2828#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FlujoEncuestaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="47" column="16" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
-          <folding>
-            <element signature="e#40#68#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="544">
+          <caret line="101" column="43" selection-start-line="101" selection-start-column="43" selection-end-line="101" selection-end-column="43" />
         </state>
       </provider>
     </entry>
