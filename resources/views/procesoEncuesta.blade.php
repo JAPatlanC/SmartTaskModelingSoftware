@@ -101,7 +101,7 @@
                 {{ Form::hidden('siguienteTema', $siguienteTema) }}
                 {{ Form::hidden('startTime', $startTime) }}
                 @foreach ($tasks as $indexKey =>$task)
-                    Pregunta {{$indexKey}}:
+                    Pregunta {{$indexKey+1}}:
                     <br/>
                     @if($task->type=='RadioButton')
                         <div class="form-group">
