@@ -76,10 +76,12 @@
                     </video>
                 @endif
                     <br/><br/><br/>
-                @empty
-                        <h4>Contesta las siguientes preguntas</h4>
+
             @endforeach
 
+                @empty($archivos)
+                    <h4>Contesta las siguientes preguntas</h4>
+                @endempty
             <button type="button" class="btn btn-dark" id="continuar">Continuar</button>
         </div>
     </div>
