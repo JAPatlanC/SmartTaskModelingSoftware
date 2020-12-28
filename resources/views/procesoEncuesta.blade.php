@@ -60,7 +60,7 @@
 
 
         <div align="center">
-            @foreach ($archivos as  $archivo)
+            @forelse  ($archivos as  $archivo)
                 @if($archivo->filetype=='pdf' || $archivo->filetype=='PDF')
                     <iframe src="data:application/pdf;base64,{{ $archivo->body }}" height="100%" width="100%"></iframe>
 
@@ -76,12 +76,12 @@
                     </video>
                 @endif
                     <br/><br/><br/>
+            @empty
+                <h4>Contesta las siguientes preguntas</h4>
+                <br/><br/><br/>
 
-            @endforeach
+            @endforelse
 
-                @empty($archivos)
-                    <h4>Contesta las siguientes preguntas</h4>
-                @endempty
             <button type="button" class="btn btn-dark" id="continuar">Continuar</button>
         </div>
     </div>
