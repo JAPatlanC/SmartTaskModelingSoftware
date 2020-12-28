@@ -18,6 +18,7 @@ class Task extends Model
         'type',
         'options',
         'answer',
+        'created_at',
         'answer_value'
     ];
     /**

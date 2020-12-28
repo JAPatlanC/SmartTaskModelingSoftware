@@ -142,7 +142,7 @@ class FlujoEncuestaController extends Controller
             }
             $siguienteTema= new Theme($temasNodos->shift());
             $idsTareas = TaskTheme::where('theme_id','=',$siguienteTema->id)->pluck('task_id')->toArray();
-            $tasks = Task::whereIn('id',$idsTareas)->get();
+            $tasks = Task::whereIn('id',$idsTareas)->orderBy('created_at')->get();
             $archivos = Content::whereIn('id',TaskContent::whereIn('task_id',$idsTareas)->pluck('content_id')->toArray())->get();
             foreach ($archivos as $archivo){
                 $base64 = $archivo->body;
