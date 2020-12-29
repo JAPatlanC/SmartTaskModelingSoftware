@@ -33,18 +33,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/FlujoEncuestaController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2244">
-              <caret line="144" column="72" selection-start-line="144" selection-start-column="72" selection-end-line="144" selection-end-column="72" />
-              <folding>
-                <element signature="e#40#68#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Models/Task.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
@@ -113,8 +101,17 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/procesoEncuesta.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="110" column="98" lean-forward="true" selection-start-line="110" selection-start-column="98" selection-end-line="110" selection-end-column="98" />
+            <state relative-caret-position="442">
+              <caret line="110" column="108" selection-start-line="110" selection-start-column="108" selection-end-line="110" selection-end-column="108" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vendor/laravelcollective/html/src/FormBuilder.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="466">
+              <caret line="856" column="25" selection-start-line="856" selection-start-column="25" selection-end-line="856" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -153,6 +150,7 @@
       <find>button</find>
       <find>diagrama</find>
       <find>demo</find>
+      <find>radio bu</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -482,12 +480,12 @@
       <workItem from="1608666017213" duration="3101000" />
       <workItem from="1608762701059" duration="1383000" />
       <workItem from="1609184905683" duration="1649000" />
-      <workItem from="1609256614763" duration="1129000" />
+      <workItem from="1609256614763" duration="2733000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97849000" />
+    <option name="totallyTimeSpent" value="99453000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
@@ -550,7 +548,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Utilities.php" />
     <entry file="file://$PROJECT_DIR$/app/Models/Node.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -912,10 +909,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/laravelcollective/html/src/FormBuilder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="856" column="25" selection-start-line="856" selection-start-column="25" selection-end-line="856" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/procesoEncuesta.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="110" column="98" lean-forward="true" selection-start-line="110" selection-start-column="98" selection-end-line="110" selection-end-column="98" />
+        <state relative-caret-position="442">
+          <caret line="110" column="108" selection-start-line="110" selection-start-column="108" selection-end-line="110" selection-end-column="108" />
         </state>
       </provider>
     </entry>
