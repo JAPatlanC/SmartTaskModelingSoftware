@@ -53,6 +53,7 @@ class UsersExport implements FromArray,WithStrictNullComparison
             //Calificando niveles superiores
             foreach ($arregloSurvey as $key=>$value){
                 if($arregloSurvey[$key]==0){
+                    dd($key,$value,$arregloSurvey);
                     $nodosHijos = Theme::where('parent_id','=',$key)->get();
                     if(count($nodosHijos)==0)
                         continue;
