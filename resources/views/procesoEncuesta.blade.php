@@ -4,16 +4,17 @@
 
 
 @section('content')
-<style>
+    <style>
 
-    label {
-        font-size: 20px;
-    }
-    #demo{
-        font-size: 20px;
-    }
+        label {
+            font-size: 20px;
+        }
 
-</style>
+        #demo {
+            font-size: 20px;
+        }
+
+    </style>
     <script>
         $(document).ready(function () {
             $("#continuar").click(function () {
@@ -63,35 +64,42 @@
             @forelse  ($archivos as  $archivo)
                 @if($archivo->filetype=='pdf' || $archivo->filetype=='PDF')
                     <iframe src="data:application/pdf;base64,{{ $archivo->body }}" height="100%" width="100%"></iframe>
+                    <br/><br/><br/>
 
                 @endif
-                    <br/><br/><br/>
             @empty
                 <h4>Contesta las siguientes preguntas</h4>
                 <br/><br/><br/>
 
             @endforelse
             @forelse  ($archivos as  $indexKey =>$archivo)
-                    @if($indexKey ==1)
-                        <h4>Observa la imagen y posteriormente contesta las preguntas</h4>
-                    @endif
                 @if($archivo->filetype=='PNG' || $archivo->filetype=='png' || $archivo->filetype=='jpg'||$archivo->filetype=='JPG')
-                    <img src="data:image/png;base64,{{ $archivo->body }}" alt="Red dot"  style="width: 400px;height: 400px;"/>
+                        @if($indexKey ==0)
+                            <h4>Observa la imagen y posteriormente contesta las preguntas</h4>
+                        @endif
+                    <img src="data:image/png;base64,{{ $archivo->body }}" alt="Red dot"
+                         style="width: 400px;height: 400px;"/>
+                            <br/><br/><br/>
 
                 @endif
-                <br/><br/><br/>
+                @empty
+                <h4>Contesta las siguientes preguntas</h4>
+                    <br/><br/><br/>
             @endforelse
-                @forelse  ($archivos as  $indexKey =>$archivo)
-                    @if($indexKey ==1)
-                        <h4>Observa el video y posteriormente contesta las preguntas</h4>
-                    @endif
-                    @if($archivo->filetype=='mp4' || $archivo->filetype=='MP4'||$archivo->filetype=='webm'||$archivo->filetype=='WEBM')
-                        <video src="data:video/mp4;base64,{{ $archivo->body }}" alt="Red dot" controls autoplay>
-                        </video>
-                    @endif
+            @forelse  ($archivos as  $indexKey =>$archivo)
+                @if($archivo->filetype=='mp4' || $archivo->filetype=='MP4'||$archivo->filetype=='webm'||$archivo->filetype=='WEBM')
+                        @if($indexKey ==0)
+                            <h4>Observa el video y posteriormente contesta las preguntas</h4>
+                        @endif
+                    <video src="data:video/mp4;base64,{{ $archivo->body }}" alt="Red dot" controls autoplay>
+                    </video>
+                            <br/><br/><br/>
+                @endif
+                @empty
+                    <h4>Contesta las siguientes preguntas</h4>
                     <br/><br/><br/>
 
-                @endforelse
+            @endforelse
             <button type="button" class="btn btn-dark" id="continuar">Continuar</button>
         </div>
     </div>
@@ -118,7 +126,8 @@
                             <br/>
                             @foreach (explode(',',$task->options) as $opt)
                                 <label>
-                                    {{ Form::radio('answer['.$task->id.']', $opt, false,['class'=>'with-gap']) }} <span>{{$opt}}</span>
+                                    {{ Form::radio('answer['.$task->id.']', $opt, false,['class'=>'with-gap']) }}
+                                    <span>{{$opt}}</span>
                                 </label>
                                 <br/>
                             @endforeach
