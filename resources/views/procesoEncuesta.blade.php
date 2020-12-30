@@ -68,8 +68,8 @@
 
                 @endif
             @empty
-                <h4>Contesta las siguientes preguntas</h4>
-                <br/><br/><br/>
+                
+                <br/>
 
             @endforelse
             @forelse  ($archivos as  $indexKey =>$archivo)
@@ -83,8 +83,8 @@
 
                 @endif
                 @empty
-                <h4>Contesta las siguientes preguntas</h4>
-                    <br/><br/><br/>
+
+                    <br/>
             @endforelse
             @forelse  ($archivos as  $indexKey =>$archivo)
                 @if($archivo->filetype=='mp4' || $archivo->filetype=='MP4'||$archivo->filetype=='webm'||$archivo->filetype=='WEBM')
