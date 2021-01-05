@@ -17,7 +17,7 @@
     </style>
     <script>
         $(document).ready(function () {
-            $("#continuar").click(function () {
+
                 var tiempoRestante = {!! $tiempoRestante->value !!}+2;
                 $("#preguntas").toggle();
                 $("#multimedia").toggle();
@@ -50,7 +50,7 @@
                         document.getElementById("demo").innerHTML = "Continue dando click en siguiente.";
                     }
                 }, 1000);
-            });
+
         });
         // Set the date we're counting down to
     </script>
@@ -59,6 +59,9 @@
     <div id="multimedia">
         <!--<legend>Multimedia</legend>-->
 
+        <div align="center">
+            <p id="demo"></p>
+        </div>
 
         <div align="center">
             @forelse  ($archivos as  $archivo)
@@ -68,7 +71,7 @@
 
                 @endif
             @empty
-                
+
                 <br/>
 
             @endforelse
@@ -100,16 +103,8 @@
                     <br/><br/><br/>
 
             @endforelse
-            <button type="button" class="btn btn-dark" id="continuar">Continuar</button>
         </div>
-    </div>
 
-    <!-- Zona preguntas -->
-    <div id="preguntas" style="display:none;">
-
-        <div align="center">
-            <p id="demo"></p>
-        </div>
         <legend>Cuestionario</legend>
         <form action="{{ route('procesoEncuesta', $survey->id) }}" id="formulario" method="POST">
             <div id="zonaPreguntas">
