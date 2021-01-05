@@ -41,7 +41,7 @@ class UsersExport implements FromArray,WithStrictNullComparison
                 $totalQuestions[$key]=0;
             }
             //Calificando temas segun las respuestas
-            $surveyDetails = Survey_Detail::where('survey_id','=',$survey->id)->get();
+            $surveyDetails = Survey_Detail::where('survey_id','=',$survey->id)->whereNotNull('time')->get();
             foreach ($surveyDetails as $detail) {
                 $arregloSurvey[$detail->theme_id]+=$detail->score;
                 $totalQuestions[$detail->theme_id]+=1;
