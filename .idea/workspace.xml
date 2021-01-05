@@ -93,8 +93,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/procesoEncuesta.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="918">
-              <caret line="54" column="24" lean-forward="true" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
+            <state relative-caret-position="357">
+              <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -155,6 +155,7 @@
       <find>diagrama</find>
       <find>demo</find>
       <find>radio bu</find>
+      <find>multimedia</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -486,12 +487,12 @@
       <workItem from="1609184905683" duration="1649000" />
       <workItem from="1609256614763" duration="3332000" />
       <workItem from="1609344390028" duration="4824000" />
-      <workItem from="1609863012094" duration="293000" />
+      <workItem from="1609863012094" duration="547000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105169000" />
+    <option name="totallyTimeSpent" value="105423000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
@@ -924,8 +925,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/procesoEncuesta.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="54" column="24" lean-forward="true" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
+        <state relative-caret-position="357">
+          <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
         </state>
       </provider>
     </entry>

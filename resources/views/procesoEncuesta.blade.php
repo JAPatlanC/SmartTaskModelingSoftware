@@ -19,8 +19,8 @@
         $(document).ready(function () {
 
                 var tiempoRestante = {!! $tiempoRestante->value !!}+2;
-                $("#preguntas").toggle();
-                $("#multimedia").toggle();
+                //$("#preguntas").toggle();
+                //$("#multimedia").toggle();
                 var dt = new Date();
                 dt.setSeconds(dt.getSeconds() + tiempoRestante);
                 var countDownDate = dt.getTime();
