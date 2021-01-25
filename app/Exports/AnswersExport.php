@@ -24,10 +24,19 @@ class AnswersExport implements FromArray,WithStrictNullComparison
         $surveys = Survey::where('finished','=',true)->get();
         //array_push($arregloFinal,array_values($arregloTitulos));
         $arregloTasks = [];
+        //array_push($arregloFinal,array_values($arregloTitulos));
         foreach($tasks as $task) {
-            array_push($arregloTasks, $task->description);
+            $arregloTasks[$task->id]= $task->description;
         }
-        array_push($arregloFinal, $arregloTasks);
+        $lastIndex = 0;
+        foreach ($arregloTasks as $test=>$key) {
+            $lastIndex=$test;
+        }
+        for ($i = 1; $i <= $lastIndex; $i++) {
+            if(empty($arregloTasks[$i]))
+                $arregloTasks[$i]='';
+        }
+        array_push($arregloFinal, ['Folio']+$arregloTasks);
         //dd($arregloFinal);
         foreach ($surveys as $survey){
             //Inicializando arreglos
@@ -47,6 +56,7 @@ class AnswersExport implements FromArray,WithStrictNullComparison
             }
 
 
+            $arregloSurvey=[$survey->folio]+$arregloSurvey;
             array_push($arregloFinal,array_values($arregloSurvey));
         }
         //dd($arregloFinal);
