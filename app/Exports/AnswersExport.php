@@ -36,6 +36,7 @@ class AnswersExport implements FromArray,WithStrictNullComparison
             if(empty($arregloTasks[$i]))
                 $arregloTasks[$i]='';
         }
+        ksort ($arregloTasks);
         array_push($arregloFinal, ['Folio']+$arregloTasks);
         //dd($arregloFinal);
         foreach ($surveys as $survey){
@@ -57,7 +58,7 @@ class AnswersExport implements FromArray,WithStrictNullComparison
 
             $arregloSurvey=[$survey->folio]+$arregloSurvey;
             ksort ($arregloSurvey);
-            dd($arregloSurvey);
+            //dd($arregloSurvey);
             array_push($arregloFinal,array_values($arregloSurvey));
         }
         //dd($arregloFinal);

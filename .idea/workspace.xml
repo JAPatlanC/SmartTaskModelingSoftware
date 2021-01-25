@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="024176a1-917d-4d10-8b38-5a0d5c628d06" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/app/Exports/AnswersExport.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exports/AnswersExport.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/procesoEncuesta.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/procesoEncuesta.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -48,8 +47,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Exports/AnswersExport.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="592">
-              <caret line="58" column="31" selection-start-line="58" selection-start-column="31" selection-end-line="58" selection-end-column="31" />
+            <state relative-caret-position="609">
+              <caret line="38" column="28" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
               <folding>
                 <element signature="e#31#53#0#PHP" expanded="true" />
               </folding>
@@ -470,12 +469,12 @@
       <workItem from="1609256614763" duration="3332000" />
       <workItem from="1609344390028" duration="4824000" />
       <workItem from="1609863012094" duration="2308000" />
-      <workItem from="1611544299027" duration="5266000" />
+      <workItem from="1611544299027" duration="5509000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112450000" />
+    <option name="totallyTimeSpent" value="112693000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1416" extended-state="6" />
@@ -908,8 +907,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Exports/AnswersExport.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="592">
-          <caret line="58" column="31" selection-start-line="58" selection-start-column="31" selection-end-line="58" selection-end-column="31" />
+        <state relative-caret-position="609">
+          <caret line="38" column="28" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
           <folding>
             <element signature="e#31#53#0#PHP" expanded="true" />
           </folding>
