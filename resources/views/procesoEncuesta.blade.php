@@ -45,6 +45,7 @@
 
                     // If the count down is finished, write some text
                     if (distance < 0) {
+                        timeEnded=true;
                         $("#zonaPreguntas").toggle();
                         clearInterval(x);
                         document.getElementById("demo").innerHTML = "Continue dando click en siguiente.";
@@ -52,6 +53,21 @@
                 }, 1000);
 
         });
+        var timeEnded=false;
+        function valthisform(){
+            if(timeEnded)
+                return true;
+            var okeyLast=true;
+            $.each($('div.checkbox-group.required'), function( index, value ) {
+                okey = $(value).find(':checkbox:checked').length;
+                if(!okey){
+                    okeyLast=false;
+                    alert('Complete todas las preguntas.');
+                    return false;
+                }
+            });
+            return okeyLast;
+        }
         // Set the date we're counting down to
     </script>
     <!--<legend>{{$siguienteTema->name}}</legend>-->
@@ -106,7 +122,7 @@
         </div>
 
         <legend>Cuestionario</legend>
-        <form action="{{ route('procesoEncuesta', $survey->id) }}" id="formulario" method="POST">
+        <form action="{{ route('procesoEncuesta', $survey->id) }}" onSubmit="return valthisform();" id="formulario" method="POST">
             <div id="zonaPreguntas">
                 @csrf
                 {{ Form::hidden('survey', $survey->id) }}
@@ -121,7 +137,7 @@
                             <br/>
                             @foreach (explode(',',$task->options) as $opt)
                                 <label>
-                                    {{ Form::radio('answer['.$task->id.']', $opt, false,['class'=>'with-gap']) }}
+                                    {{ Form::radio('answer['.$task->id.']', $opt, false,['class'=>'with-gap','required' => 'Complete la pregunta.']) }}
                                     <span>{{$opt}}</span>
                                 </label>
                                 <br/>
@@ -132,13 +148,15 @@
                         <div class="form-group">
                             {!! Form::label($task->description, $task->description, ['class' => 'control-label']) !!}
                             <br/>
+                            <div class="checkbox-group required">
                             @foreach (explode(',',$task->options) as $opt)
-                                <label>
+
                                     {{ Form::checkbox('answer['.$task->id.'][]', $opt, false,['class'=>'with-gap']) }}
-                                    <span>{{$opt}}</span>
-                                </label>
+                                    <label><span>{{$opt}}</span></label>
+
                                 <br/>
                             @endforeach
+                            </div>
                         </div>
                     @endif
                     @if($task->type=='Numerico')
@@ -146,7 +164,7 @@
                             {!! Form::label($task->description, $task->description, ['class' => 'control-label']) !!}
                             <br/>
                             <div class="col-lg-10">
-                                {!! Form::text('answer['.$task->id.']', null, ['class' => 'form-control', 'placeholder' => 'Ingrese un valor númerico...']) !!}
+                                {!! Form::text('answer['.$task->id.']', null, ['class' => 'form-control', 'placeholder' => 'Ingrese un valor númerico...','required' => 'Complete la pregunta.']) !!}
                             </div>
                             <br/>
                         </div>

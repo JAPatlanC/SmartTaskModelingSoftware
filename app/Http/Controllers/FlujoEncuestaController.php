@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exports\UsersExport;
+use App\Exports\AnswersExport;
 use App\Models\Content;
 use App\Models\Setting;
 use App\Models\Survey;
@@ -45,9 +46,9 @@ class FlujoEncuestaController extends Controller
             foreach ($archivos as $archivo){
                 $base64 = $archivo->body;
                 //heroku
-                $my_bytea = stream_get_contents($base64);
+                /*$my_bytea = stream_get_contents($base64);
                 $my_string = pg_unescape_bytea($my_bytea);
-                $archivo->body = htmlspecialchars($my_string);
+                $archivo->body = htmlspecialchars($my_string);*/
             }
             $survey->folio = $request->folio;
             $survey->save();
@@ -147,9 +148,9 @@ class FlujoEncuestaController extends Controller
             foreach ($archivos as $archivo){
                 $base64 = $archivo->body;
                 //heroku
-                $my_bytea = stream_get_contents($base64);
+                /*$my_bytea = stream_get_contents($base64);
                 $my_string = pg_unescape_bytea($my_bytea);
-                $archivo->body = htmlspecialchars($my_string);
+                $archivo->body = htmlspecialchars($my_string);*/
             }
             $survey->update();
         }
@@ -169,6 +170,11 @@ class FlujoEncuestaController extends Controller
 
     public function export()
     {
-        return Excel::download(new UsersExport, 'users.xlsx');
+        return Excel::download(new UsersExport, 'Resultados.xlsx');
+    }
+
+    public function exportAnswers()
+    {
+        return Excel::download(new AnswersExport, 'Respuestas.xlsx');
     }
 }

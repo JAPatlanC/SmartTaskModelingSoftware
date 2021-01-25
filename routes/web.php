@@ -99,3 +99,4 @@ Route::post('procesoEncuesta', [FlujoEncuestaController::class, 'process'])->nam
 Route::get('terminaEncuesta', [FlujoEncuestaController::class, 'end'])->name('terminaEncuesta');
 
 Route::get('export', [FlujoEncuestaController::class, 'export'])->name('export');
+Route::get('exportAnswers', [FlujoEncuestaController::class, 'exportAnswers'])->name('exportAnswers');
