@@ -46,7 +46,6 @@ class AnswersExport implements FromArray,WithStrictNullComparison
             foreach ($surveyDetails as $detail) {
                 $arregloSurvey[$detail->task_id]=$detail->answer;
             }
-            $lastIndex = 0;
             foreach ($arregloSurvey as $test=>$key) {
                 $lastIndex=$test;
             }
