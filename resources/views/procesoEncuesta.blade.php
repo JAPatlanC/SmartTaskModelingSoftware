@@ -137,7 +137,7 @@
                             <br/>
                             @foreach (explode(',',$task->options) as $opt)
                                 <label>
-                                    {{ Form::radio('answer['.$task->id.']', $opt, false,['class'=>'with-gap']) }}
+                                    {{ Form::radio('answer['.$task->id.']', $opt, false,['class'=>'with-gap','required' => 'Complete la pregunta.']) }}
                                     <span>{{$opt}}</span>
                                 </label>
                                 <br/>
@@ -164,7 +164,7 @@
                             {!! Form::label($task->description, $task->description, ['class' => 'control-label']) !!}
                             <br/>
                             <div class="col-lg-10">
-                                {!! Form::text('answer['.$task->id.']', null, ['class' => 'form-control', 'placeholder' => 'Ingrese un valor númerico...']) !!}
+                                {!! Form::text('answer['.$task->id.']', null, ['class' => 'form-control', 'placeholder' => 'Ingrese un valor númerico...','required' => 'Complete la pregunta.']) !!}
                             </div>
                             <br/>
                         </div>
