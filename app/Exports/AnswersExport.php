@@ -56,6 +56,7 @@ class AnswersExport implements FromArray,WithStrictNullComparison
 
 
             $arregloSurvey=[$survey->folio]+$arregloSurvey;
+            dd($arregloSurvey);
             array_push($arregloFinal,array_values($arregloSurvey));
         }
         //dd($arregloFinal);
