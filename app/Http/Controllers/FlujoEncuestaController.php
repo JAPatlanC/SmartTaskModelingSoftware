@@ -46,9 +46,9 @@ class FlujoEncuestaController extends Controller
             foreach ($archivos as $archivo){
                 $base64 = $archivo->body;
                 //heroku
-                /*$my_bytea = stream_get_contents($base64);
+                $my_bytea = stream_get_contents($base64);
                 $my_string = pg_unescape_bytea($my_bytea);
-                $archivo->body = htmlspecialchars($my_string);*/
+                $archivo->body = htmlspecialchars($my_string);
             }
             $survey->folio = $request->folio;
             $survey->save();
@@ -148,9 +148,9 @@ class FlujoEncuestaController extends Controller
             foreach ($archivos as $archivo){
                 $base64 = $archivo->body;
                 //heroku
-                /*$my_bytea = stream_get_contents($base64);
+                $my_bytea = stream_get_contents($base64);
                 $my_string = pg_unescape_bytea($my_bytea);
-                $archivo->body = htmlspecialchars($my_string);*/
+                $archivo->body = htmlspecialchars($my_string);
             }
             $survey->update();
         }
