@@ -107,11 +107,20 @@
             @endforelse
             @forelse  ($archivos as  $indexKey =>$archivo)
                 @if($archivo->filetype=='PNG' || $archivo->filetype=='png' || $archivo->filetype=='jpg'||$archivo->filetype=='JPG')
-                    @if ($imagenes == 1)
-                        <h4>Observa la imagen y posteriormente contesta las preguntas</h4>
-                    @endif
-                    @if ($imagenes> 1)
-                        <h4>Observa las imagenes y posteriormente contesta las preguntas</h4>
+
+                    @if($imagenes >0)
+                        @if ($imagenes == 1)
+                            <h4>Observa la imagen y posteriormente contesta las preguntas</h4>
+                            @php
+                                $imagenes = 0;
+                            @endphp
+                        @endif
+                        @if ($imagenes> 1)
+                            <h4>Observa las imagenes y posteriormente contesta las preguntas</h4>
+                            @php
+                                $imagenes = 0;
+                            @endphp
+                        @endif
                     @endif
                     <img src="data:image/png;base64,{{ $archivo->body }}" alt="Red dot"
                          style="width: 400px;height: 400px;"/>
@@ -123,14 +132,20 @@
             @endforelse
             @forelse  ($archivos as  $indexKey =>$archivo)
                 @if($archivo->filetype=='mp4' || $archivo->filetype=='MP4'||$archivo->filetype=='webm'||$archivo->filetype=='WEBM')
-
-                        @if ($videos == 1)
-                            <h4>Observa el video y posteriormente contesta las preguntas</h4>
+                        @if($videos >0)
+                            @if ($videos == 1)
+                                <h4>Observa el video y posteriormente contesta las preguntas</h4>
+                                @php
+                                    $videos = 0;
+                                @endphp
+                            @endif
+                            @if ($videos> 1)
+                                <h4>Observa los videos y posteriormente contesta las preguntas</h4>
+                                @php
+                                    $videos = 0;
+                                @endphp
+                            @endif
                         @endif
-                        @if ($videos> 1)
-                            <h4>Observa los videos y posteriormente contesta las preguntas</h4>
-                        @endif
-
                     <video src="data:video/mp4;base64,{{ $archivo->body }}" alt="Red dot" controls autoplay>
                     </video>
                             <br/><br/><br/>
