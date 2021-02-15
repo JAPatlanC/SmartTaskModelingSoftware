@@ -80,11 +80,25 @@
         </div>
 
         <div align="center">
+            @php
+                $imagenes = 0;
+                $videos = 0;
+            @endphp
             @forelse  ($archivos as  $archivo)
                 @if($archivo->filetype=='pdf' || $archivo->filetype=='PDF')
                     <iframe src="data:application/pdf;base64,{{ $archivo->body }}" height="100%" width="100%"></iframe>
                     <br/><br/><br/>
 
+                @endif
+                @if($archivo->filetype=='PNG' || $archivo->filetype=='png' || $archivo->filetype=='jpg'||$archivo->filetype=='JPG')
+                    @php
+                        $imagenes = $imagenes+1;
+                    @endphp
+                @endif
+                @if($archivo->filetype=='mp4' || $archivo->filetype=='MP4'||$archivo->filetype=='webm'||$archivo->filetype=='WEBM')
+                    @php
+                        $videos = $videos+1;
+                    @endphp
                 @endif
             @empty
 
@@ -93,13 +107,15 @@
             @endforelse
             @forelse  ($archivos as  $indexKey =>$archivo)
                 @if($archivo->filetype=='PNG' || $archivo->filetype=='png' || $archivo->filetype=='jpg'||$archivo->filetype=='JPG')
-                        @if($indexKey ==0)
-                            <h4>Observa la imagen y posteriormente contesta las preguntas</h4>
-                        @endif
+                    @if ($imagenes == 1)
+                        <h4>Observa la imagen y posteriormente contesta las preguntas</h4>
+                    @endif
+                    @if ($imagenes> 1)
+                        <h4>Observa las imagenes y posteriormente contesta las preguntas</h4>
+                    @endif
                     <img src="data:image/png;base64,{{ $archivo->body }}" alt="Red dot"
                          style="width: 400px;height: 400px;"/>
                             <br/><br/><br/>
-
                 @endif
                 @empty
 
@@ -107,9 +123,14 @@
             @endforelse
             @forelse  ($archivos as  $indexKey =>$archivo)
                 @if($archivo->filetype=='mp4' || $archivo->filetype=='MP4'||$archivo->filetype=='webm'||$archivo->filetype=='WEBM')
-                        @if($indexKey ==0)
+
+                        @if ($videos == 1)
                             <h4>Observa el video y posteriormente contesta las preguntas</h4>
                         @endif
+                        @if ($videos> 1)
+                            <h4>Observa los videos y posteriormente contesta las preguntas</h4>
+                        @endif
+
                     <video src="data:video/mp4;base64,{{ $archivo->body }}" alt="Red dot" controls autoplay>
                     </video>
                             <br/><br/><br/>

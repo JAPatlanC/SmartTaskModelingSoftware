@@ -36,7 +36,7 @@ Route::get('contentsVer/{id}', function ($id) {
     $baseData = htmlspecialchars($my_string);
 
     return view('contents.ver',  compact(['baseData','baseData','type']));
-})->name('contentsVer');
+})->name('contentsVer')->middleware('auth');;
 
 
 Route::get('validaEstructura', function () {
@@ -58,7 +58,7 @@ Route::get('validaEstructura', function () {
     }
 
     return view('validaEstructura',  compact(['data','data']));
-})->name('validaEstructura');
+})->name('validaEstructura')->middleware('auth');;
 
 
 Route::get('diagrama', function () {
@@ -72,19 +72,19 @@ Route::get('diagrama', function () {
 
 
     return view('diagrama',  compact(['data','data']));
-})->name('diagrama');
+})->name('diagrama')->middleware('auth');;
 
 Route::get('resultados', function () {
     $projects = \App\Models\Survey::all();
     return view('resultados',compact(['projects']));
-})->name('resultados');
+})->name('resultados')->middleware('auth');;
 
 Route::get('/admin/task', function () {
     return view('admin/Task');
-});
+})->middleware('auth');;
 Route::get('/admin/resource', function () {
     return view('admin/Resource');
-});
+})->middleware('auth');;
 
 Route::resource('themes', ThemeController::class)->middleware('auth');;
 Route::resource('settings', SettingController::class)->middleware('auth');;
@@ -98,5 +98,5 @@ Route::get('iniciaEncuesta', [FlujoEncuestaController::class, 'begin']);
 Route::post('procesoEncuesta', [FlujoEncuestaController::class, 'process'])->name('procesoEncuesta');
 Route::get('terminaEncuesta', [FlujoEncuestaController::class, 'end'])->name('terminaEncuesta');
 
-Route::get('export', [FlujoEncuestaController::class, 'export'])->name('export');
-Route::get('exportAnswers', [FlujoEncuestaController::class, 'exportAnswers'])->name('exportAnswers');
+Route::get('export', [FlujoEncuestaController::class, 'export'])->name('export')->middleware('auth');;
+Route::get('exportAnswers', [FlujoEncuestaController::class, 'exportAnswers'])->name('exportAnswers')->middleware('auth');;
