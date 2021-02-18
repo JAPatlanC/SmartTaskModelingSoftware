@@ -100,10 +100,7 @@
         <entry file="file://$PROJECT_DIR$/resources/views/welcomeUser.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="357">
-              <caret line="21" column="76" selection-start-line="21" selection-start-column="76" selection-end-line="21" selection-end-column="76" />
-              <folding>
-                <element signature="e#456#478#0#HTML" expanded="true" />
-              </folding>
+              <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -356,16 +353,17 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-3851" />
-    <option name="y" value="-11" />
-    <option name="width" value="3863" />
-    <option name="height" value="2183" />
+    <option name="x" value="-3852" />
+    <option name="y" value="-12" />
+    <option name="width" value="3864" />
+    <option name="height" value="2184" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -388,7 +386,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -468,18 +465,19 @@
       <workItem from="1611939828307" duration="717000" />
       <workItem from="1613427535215" duration="3234000" />
       <workItem from="1613582744412" duration="306000" />
-      <workItem from="1613612834013" duration="330000" />
+      <workItem from="1613612834013" duration="621000" />
+      <workItem from="1613666340976" duration="31000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117479000" />
+    <option name="totallyTimeSpent" value="117801000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-3847" y="-7" width="2575" height="1455" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20159046" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -914,10 +912,7 @@
     <entry file="file://$PROJECT_DIR$/resources/views/welcomeUser.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
-          <caret line="21" column="76" selection-start-line="21" selection-start-column="76" selection-end-line="21" selection-end-column="76" />
-          <folding>
-            <element signature="e#456#478#0#HTML" expanded="true" />
-          </folding>
+          <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
         </state>
       </provider>
     </entry>

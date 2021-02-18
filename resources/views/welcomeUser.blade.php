@@ -19,7 +19,9 @@
 
 
         <legend>{{$mensajeInicial->value}}</legend>
-        <a href="https://questionpro.com/t/ARgCmZlA01" style="font-size: 24;">Ir a la Encuesta</a>
+        @if(!$isBegin)
+            <a href="https://questionpro.com/t/ARgCmZlA01" style="font-size: 24;">Ir a la Encuesta</a>
+        @endif
         @if($isBegin)
             <form action="{{ route('procesoEncuesta', $survey->id) }}" method="POST">
                 @csrf
